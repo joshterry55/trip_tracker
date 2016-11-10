@@ -1,0 +1,14 @@
+<h1>My Trip Tracker</h1>
+<hr>
+<h3>Trips:</h3>
+<% if @trips.any? %>
+    <% @trips.each do |trip| %>
+    <div>
+      <p class="maintrips"><%= link_to trip.name, trip_path(trip) %></p>
+    <div>
+  <% end %>
+<% else %>
+  <h5>No Trips were found, Please create a trip!</h5>
+<% end %>
+<br>
+<p class="btn"><%= link_to 'Create Trip', new_trip_path %></p>

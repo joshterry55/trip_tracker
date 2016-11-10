@@ -1,0 +1,18 @@
+<h1><%= @trip.name %></h1>
+<hr>
+<div>
+<h3>Stops:</h3>
+<% if @locations.any? %>
+    <% @locations.each do |location| %>
+    <div>
+      <p class="maintrips"><%= link_to "#{location.name}", trip_location_path(@trip, location) %></p>
+    </div>
+    <% end %>
+<% else %>
+  <h4>No locations were found</h4>
+<% end %>
+<br>
+<p class='btn'><%= link_to 'Add a Stop', new_trip_location_path(@trip) %></p>
+</div>
+<hr>
+<h5><%= link_to '<<Back', trip_path(@trip) %></h5>
